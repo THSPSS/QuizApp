@@ -1,6 +1,8 @@
 package seon.Quiz.App.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import seon.Quiz.App.Question;
 import seon.Quiz.App.service.QuestionService;
@@ -16,22 +18,22 @@ public class QuestionController {
     QuestionService questionService;
 
     @GetMapping("allQuestions")
-    public List<Question> getAllQuestions(){
+    public ResponseEntity<List<Question>> getAllQuestions(){
         return questionService.getAllQuestions();
     }
 
     @GetMapping("difficultylevel/{difficultylevel}")
-    public List<Question> getQuestionsByDifficultylevel(@PathVariable String difficultylevel){
+    public ResponseEntity<List<Question>> getQuestionsByDifficultylevel(@PathVariable String difficultylevel){
         return questionService.getQuestionsByDifficultylevel(difficultylevel);
     }
 
     @PostMapping("add")
-    public String addQuestion(@RequestBody Question question){
+    public ResponseEntity<String> addQuestion(@RequestBody Question question){
         return questionService.addQuestion(question);
     }
 
     @DeleteMapping("delete/{id}")
-    public String deleteQuestion(@PathVariable Integer id){
+    public ResponseEntity<String> deleteQuestion(@PathVariable Integer id){
         return questionService.deleteQuestionById(id);
     }
 
