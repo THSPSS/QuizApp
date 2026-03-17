@@ -1,4 +1,4 @@
-package seon.Quiz.App;
+package seon.Quiz.App.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -2,7 +2,7 @@ package seon.Quiz.App.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import seon.Quiz.App.Question;
+import seon.Quiz.App.model.Question;
 
 import java.util.List;
 
