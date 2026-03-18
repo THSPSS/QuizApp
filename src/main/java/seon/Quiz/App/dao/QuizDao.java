@@ -1,6 +1,7 @@
 package seon.Quiz.App.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import seon.Quiz.App.model.Quiz;
 
 public interface QuizDao extends JpaRepository<Quiz, Integer> {
 

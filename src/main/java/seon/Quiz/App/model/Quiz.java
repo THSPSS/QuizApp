@@ -1,19 +1,26 @@
 package seon.Quiz.App.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
+@Entity
+@Data
 public class Quiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    //quiz with multiple questionss
+    //quiz with multiple questions
     @ManyToMany
     private List<Question> questions;
+
+    public void setDifficultylevel(String difficultylevel) {
+
+    }
+
+    public void setQuestions(List<Question> questions) {
+    }
 }

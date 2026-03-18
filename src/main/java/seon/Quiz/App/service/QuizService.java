@@ -1,9 +1,14 @@
 package seon.Quiz.App.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import seon.Quiz.App.dao.QuestionDao;
 import seon.Quiz.App.dao.QuizDao;
+import seon.Quiz.App.model.Question;
 import seon.Quiz.App.model.Quiz;
+
+import java.util.List;
 
 public class QuizService {
     
@@ -15,8 +20,12 @@ public class QuizService {
 
 
     public ResponseEntity<String> createQuiz(String difficultylevel, int numQ) {
-        List<Question> question = questionDao.findRandomeQuestionsByDiffcultyLevel(difficultylevel ,numQ);
+        List<Question> questions = questionDao.findRandomQuestionsByDifficultyLevel(difficultylevel ,numQ);
         Quiz quiz = new Quiz();
         quiz.setDifficultylevel(difficultylevel);
+        quiz.setQuestions(questions);
+        quizDao.save(quiz);
+
+        return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
 }
