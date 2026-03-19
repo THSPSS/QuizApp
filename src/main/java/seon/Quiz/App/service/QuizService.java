@@ -28,4 +28,8 @@ public class QuizService {
 
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
+
+    public ResponseEntity<List<Question>> getQuizQuestions(Integer id) {
+        Quiz quiz = quizDao.findById(id);
+    }
 }
