@@ -3,10 +3,12 @@ package seon.Quiz.App.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import seon.Quiz.App.model.Question;
 import seon.Quiz.App.service.QuizService;
+
 
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
 @RequestMapping("quiz")
 public class QuizController {
 
+    @Service
     @Autowired
     QuizService quizService;
 

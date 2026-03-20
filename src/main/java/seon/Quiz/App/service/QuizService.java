@@ -30,6 +30,7 @@ public class QuizService {
     }
 
     public ResponseEntity<List<Question>> getQuizQuestions(Integer id) {
-        Quiz quiz = quizDao.findById(id);
+//        Quiz quiz = quizDao.findById(id);
+        return null;
     }
 }
