@@ -16,12 +16,10 @@ import java.util.List;
 @RequestMapping("quiz")
 public class QuizController {
 
-    //add service
-    @Service
     @Autowired
     QuizService quizService;
 
-    //because we sedning post request to get quiz list
+    //because we are going to send post request to get quiz list
     @PostMapping("create")
     public ResponseEntity<String> createQuiz(@RequestParam String difficultylevel , @RequestParam int numQ){
         return quizService.createQuiz(difficultylevel , numQ);
