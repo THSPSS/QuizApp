@@ -12,13 +12,13 @@ public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String title;
 
     //quiz with multiple questions
     @ManyToMany
     private List<Question> questions;
 
     public void setDifficultylevel(String difficultylevel) {
-
     }
 
     public void setQuestions(List<Question> questions) {

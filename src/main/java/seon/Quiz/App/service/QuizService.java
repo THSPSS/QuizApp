@@ -21,11 +21,13 @@ public class QuizService {
     QuestionDao questionDao;
 
 
-    public ResponseEntity<String> createQuiz(String difficultylevel, int numQ) {
+    public ResponseEntity<String> createQuiz(String difficultylevel, int numQ , String title) {
         List<Question> questions = questionDao.findRandomQuestionsByDifficultyLevel(difficultylevel ,numQ);
+
         Quiz quiz = new Quiz();
-        quiz.setDifficultylevel(difficultylevel);
+        quiz.setTitle(title);
         quiz.setQuestions(questions);
+
         quizDao.save(quiz);
 
         return new ResponseEntity<>("Success", HttpStatus.CREATED);

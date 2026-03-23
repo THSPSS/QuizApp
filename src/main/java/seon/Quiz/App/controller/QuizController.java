@@ -21,8 +21,8 @@ public class QuizController {
 
     //because we are going to send post request to get quiz list
     @PostMapping("create")
-    public ResponseEntity<String> createQuiz(@RequestParam String difficultylevel , @RequestParam int numQ){
-        return quizService.createQuiz(difficultylevel , numQ);
+    public ResponseEntity<String> createQuiz(@RequestParam String difficultylevel , @RequestParam int numQ , @RequestParam String title){
+        return quizService.createQuiz(difficultylevel , numQ , title);
     }
     @GetMapping("get/{id}")
     public ResponseEntity<List<Question>> getQuizQuestions(@PathVariable Integer id){
