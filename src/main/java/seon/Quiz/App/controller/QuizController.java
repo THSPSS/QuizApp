@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import seon.Quiz.App.model.Question;
+import seon.Quiz.App.model.QuestionWrapper;
 import seon.Quiz.App.service.QuizService;
 
 
@@ -22,11 +23,10 @@ public class QuizController {
     //because we are going to send post request to get quiz list
     @PostMapping("create")
     public ResponseEntity<String> createQuiz(@RequestParam String difficultylevel , @RequestParam int numQ , @RequestParam String title){
-//        return new ResponseEntity<>("Quiz is created" , HttpStatus.OK);
         return quizService.createQuiz(difficultylevel , numQ , title);
     }
     @GetMapping("get/{id}")
-    public ResponseEntity<List<Question>> getQuizQuestions(@PathVariable Integer id){
+    public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(@PathVariable Integer id){
         return quizService.getQuizQuestions(id);
     }
 }

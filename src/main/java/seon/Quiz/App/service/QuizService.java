@@ -33,7 +33,6 @@ public class QuizService {
     }
 
     public ResponseEntity<List<Question>> getQuizQuestions(Integer id) {
-//        Quiz quiz = quizDao.findById(id);
-        return null;
+        Optional<Quiz> =  quizDao.findById(id);
     }
 }
