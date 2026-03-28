@@ -13,5 +13,5 @@ public interface QuestionDao extends JpaRepository<Question, Integer> {
     List<Question> findByDifficultylevel(String difficultylevel);
 
     @Query(value = "SELECT * FROM question q WHERE q.difficultylevel=:difficultylevel ORDER BY RANDOM() LIMIT :numQ", nativeQuery = true)
-    List<Question> findRandomQuestionsByDifficultyLevel(String difficultylevel, int numQ);
+    List<Question> findRandomQuestionsByDifficultylevel(String difficultylevel, int numQ);
 }

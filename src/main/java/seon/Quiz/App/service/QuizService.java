@@ -21,7 +21,9 @@ public class QuizService {
 
 
     public ResponseEntity<String> createQuiz(String difficultylevel, int numQ , String title) {
-        List<Question> questions = questionDao.findRandomQuestionsByDifficultyLevel(difficultylevel ,numQ);
+        List<Question> questions = questionDao.findRandomQuestionsByDifficultylevel(difficultylevel ,numQ);
+
+        System.out.println("Questions size: " + questions.size());
 
         Quiz quiz = new Quiz();
         quiz.setTitle(title);
@@ -32,7 +34,7 @@ public class QuizService {
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
 
-    public ResponseEntity<List<Question>> getQuizQuestions(Integer id) {
-        Optional<Quiz> =  quizDao.findById(id);
-    }
+//    public ResponseEntity<List<Question>> getQuizQuestions(Integer id) {
+//        Optional<Quiz> =  quizDao.findById(id);
+//    }
 }
