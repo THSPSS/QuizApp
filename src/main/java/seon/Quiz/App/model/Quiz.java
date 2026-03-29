@@ -22,6 +22,9 @@ public class Quiz {
     public void setDifficultylevel(String difficultylevel) {
     }
 
+    public void setTitle(String title) {
+    }
+
     public void setQuestions(List<Question> questions) {
     }
 }
