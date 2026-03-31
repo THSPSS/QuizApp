@@ -14,17 +14,7 @@ public class Quiz {
     private Integer id;
     private String title;
 
-    //quiz with multiple questions
+    //mapping one quiz with multiple questions
     @ManyToMany
     private List<Question> questions;
-
-
-    public void setDifficultylevel(String difficultylevel) {
-    }
-
-    public void setTitle(String title) {
-    }
-
-    public void setQuestions(List<Question> questions) {
-    }
 }

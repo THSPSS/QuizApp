@@ -25,6 +25,10 @@ public class QuizService {
 
         System.out.println("Questions size: " + questions.size());
 
+        for (Question q : questions) {
+            System.out.println(q);
+        }
+
         Quiz quiz = new Quiz();
         quiz.setTitle(title);
         quiz.setQuestions(questions);
