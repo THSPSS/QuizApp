@@ -25,8 +25,10 @@ public class QuizController {
     public ResponseEntity<String> createQuiz(@RequestParam String difficultylevel , @RequestParam int numQ , @RequestParam String title){
         return quizService.createQuiz(difficultylevel , numQ , title);
     }
-//    @GetMapping("get/{id}")
-//    public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(@PathVariable Integer id){
-//       return quizService.getQuizQuestions(id);
-//    }
+
+
+    @GetMapping("get/{id}")
+    public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(@PathVariable Integer id){
+       return quizService.getQuizQuestions(id);
+    }
 }

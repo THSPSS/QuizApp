@@ -7,9 +7,12 @@ import org.springframework.stereotype.Service;
 import seon.Quiz.App.dao.QuestionDao;
 import seon.Quiz.App.dao.QuizDao;
 import seon.Quiz.App.model.Question;
+import seon.Quiz.App.model.QuestionWrapper;
 import seon.Quiz.App.model.Quiz;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class QuizService {
@@ -38,7 +41,24 @@ public class QuizService {
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
 
-//    public ResponseEntity<List<Question>> getQuizQuestions(Integer id) {
-//        Optional<Quiz> =  quizDao.findById(id);
-//    }
+    public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(Integer id) {
+        Optional<Quiz> quiz = quizDao.findById(id);
+
+        //quiz object has questions
+        List<Question> questionsFromDb  = quiz.get().getQuestions();
+        List<QuestionWrapper> questionsForUser = new ArrayList<>();
+        for(Question q : questionsFromDb) {
+            QuestionWrapper qw = new QuestionWrapper(
+                    q.getId(),
+                    q.getQuestionTitle() ,
+                    q.getOption1() ,
+                    q.getOption2() ,
+                    q.getOption3() ,
+                    q.getOption4()
+            );
+            questionsForUser.add(qw);
+        }
+
+        return new ResponseEntity<>(questionsForUser, HttpStatus.OK);
+    }
 }
