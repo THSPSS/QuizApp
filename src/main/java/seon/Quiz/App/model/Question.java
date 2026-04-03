@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.Data;
 
 @Data
@@ -21,4 +22,5 @@ public class Question {
     private String correctAnswer;
     private String difficultylevel;
     private String category;
+
 }
