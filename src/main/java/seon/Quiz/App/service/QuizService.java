@@ -69,7 +69,7 @@ public class QuizService {
         int right = 0;
         int i = 0;
         for(Response response : responses) {
-            if(response.getResponse().equals(questions.get(i).getRightAnswer()))
+            if(response.getResponse().equals(questions.get(i).getCorrectAnswer()))
                 right++;
             i++;
         }
